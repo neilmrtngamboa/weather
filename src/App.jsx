@@ -3,7 +3,7 @@ import Weather from './Components/Weather'
 
 const App = () => {
   return (
-    <main className='grid'>
+    <main className='grid bg-blue-300 min-h-dvh'>
       <Weather/>
     </main>
   )

@@ -8,7 +8,7 @@ const Weather = () => {
     return (
         <div className='mx-auto'>
             <div className=''>
-                <div className='bg-yellow-300 p-14'>
+                <div className='bg-yellow-300 p-14 rounded-2xl shadow-2xl shadow-yellow-500 mt-16'>
                     <div className='flex gap-2'>
                         <input type="text" placeholder='Search' className='p-1.5 shadow-md border border-blue-800 rounded' />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 my-auto">
