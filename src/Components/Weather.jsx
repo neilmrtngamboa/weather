@@ -1,10 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import clearWeather from '../assets/Images/clear.png'
 import humidIcon from '../assets/Images/humid.png'
 import windIcon from '../assets/Images/wind.png'
 
 
 const Weather = () => {
+
+    const [weatherData, setWeatherData] = useState(false);
+
+    const findCity = async (city) => {
+        try{
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data);
+            setWeatherData({
+                temperature: Math.floor(data.main.temp),
+                humidity: data.main.humidity,
+                windSpeed: data.wind.speed,
+                location: data.name            
+            })
+        
+        } catch (error){
+
+        }
+    }
+
+    useEffect (() => {
+        
+        findCity('Tokyo')
+
+    }, [])
+    
     return (
         <div className='mx-auto'>
             <div className=''>
