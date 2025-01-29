@@ -29,7 +29,7 @@ const Weather = () => {
 
     useEffect (() => {
         
-        findCity('Tokyo')
+        findCity('Manila')
 
     }, [])
     
@@ -45,19 +45,19 @@ const Weather = () => {
                     </div>
                     <img src={clearWeather} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
                     <div className='text-center mt-5'>
-                        <p>16°C</p>
-                        <p>Tokyo</p>
+                        <p>{weatherData.temperature}°C</p>
+                        <p>{weatherData.location}</p>
                     </div>
 
                     <div className='grid grid-cols-2 mt-7'>
 
                         <div className='flex gap-2'>
-                            <p className='my-auto'>22%</p>
+                            <p className='my-auto'>{weatherData.humidity}%</p>
                             <img src={humidIcon} alt="humid" style={{width:'2.5rem', height:'2.5rem'}} />
                         </div>
 
                         <div className='flex gap-2'>
-                            <p className='my-auto'>2.8 Km/h</p>
+                            <p className='my-auto'>{weatherData.windSpeed}Km/h</p>
                             <img src={windIcon} alt="wind" style={{width:'2.5rem', height:'2.5rem'}} />
                         </div>
 
