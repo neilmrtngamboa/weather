@@ -5,11 +5,31 @@ import windIcon from '../assets/Images/wind.png'
 import snowIcon from '../assets/Images/snow.png'
 import cloudyIcon from '../assets/Images/cloudy.png'
 import drizzleIcon from '../assets/Images/drizzle.png'
+import rainIcon from '../assets/Images/rain.png'
+
 
 
 const Weather = () => {
 
     const [weatherData, setWeatherData] = useState(false);
+
+    const weatherIcons = {
+        '01d' : clearWeather,
+        '01n' : clearWeather,
+        '02d' : cloudyIcon,
+        '02n' : cloudyIcon,
+        '03d' : cloudyIcon,
+        '03n' : cloudyIcon,
+        '04d' : drizzleIcon,
+        '04n' : drizzleIcon,
+        '09d' : rainIcon,
+        '09n' : rainIcon,
+        '10d' : rainIcon,
+        '10n' : rainIcon,
+        '13d' : snowIcon,
+        '13n' : snowIcon,
+
+    }
 
 
     const findCity = async (city) => {
@@ -19,11 +39,14 @@ const Weather = () => {
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
+            const icon = weatherIcons[data.weather[0].icon] || clearWeather;
             setWeatherData({
                 temperature: Math.floor(data.main.temp),
                 humidity: data.main.humidity,
                 windSpeed: data.wind.speed,
-                location: data.name            
+                location: data.name,
+                icon: icon
+
             })
         
         } catch (error){
@@ -33,7 +56,7 @@ const Weather = () => {
 
     useEffect (() => {
         
-        findCity('Manila')
+        findCity('Madrid')
 
     }, [])
     
@@ -47,7 +70,7 @@ const Weather = () => {
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>
                     </div>
-                    <img src={clearWeather} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
+                    <img src={weatherData.icon} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
                     <div className='text-center mt-5'>
                         <p>{weatherData.temperature}°C</p>
                         <p>{weatherData.location}</p>
