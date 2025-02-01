@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import clearWeather from '../assets/Images/clear.png'
 import humidIcon from '../assets/Images/humid.png'
 import windIcon from '../assets/Images/wind.png'
+import snowIcon from '../assets/Images/snow.png'
+import cloudyIcon from '../assets/Images/cloudy.png'
+import drizzleIcon from '../assets/Images/drizzle.png'
 
 
 const Weather = () => {
 
     const [weatherData, setWeatherData] = useState(false);
+
 
     const findCity = async (city) => {
         try{
