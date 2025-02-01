@@ -74,29 +74,41 @@ const Weather = () => {
                             <span className='my-auto ms-1'>Search</span>
                         </button>
                     </div>
-                    <img src={weatherData.icon} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
-                    <div className='text-center mt-5'>
-                        <p>{weatherData.temperature}°C</p>
-                        <p>{weatherData.location}</p>
-                    </div>
 
-                    <div className='grid grid-cols-2 mt-7'>
-
-                        <div className='flex gap-2'>
-                            <p className='my-auto'>{weatherData.humidity}%</p>
-                            <img src={humidIcon} alt="humid" style={{width:'2.5rem', height:'2.5rem'}} />
+                    {weatherData 
+                    ?
+                        <div>
+                        <img src={weatherData.icon} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
+                        <div className='text-center mt-5'>
+                            <p>{weatherData.temperature}°C</p>
+                            <p>{weatherData.location}</p>
                         </div>
 
-                        <div className='flex gap-2'>
-                            <p className='my-auto'>{weatherData.windSpeed}Km/h</p>
-                            <img src={windIcon} alt="wind" style={{width:'2.5rem', height:'2.5rem'}} />
+                        <div className='grid grid-cols-2 mt-7'>
+
+                            <div className='flex gap-2'>
+                                <p className='my-auto'>{weatherData.humidity}%</p>
+                                <img src={humidIcon} alt="humid" style={{width:'2.5rem', height:'2.5rem'}} />
+                            </div>
+
+                            <div className='flex gap-2'>
+                                <p className='my-auto'>{weatherData.windSpeed}Km/h</p>
+                                <img src={windIcon} alt="wind" style={{width:'2.5rem', height:'2.5rem'}} />
+                            </div>
+
                         </div>
+                    </div> 
+                    :
+                    
+                    <div>
+
+                        <h1 className='text-center mt-10'>DATA NOT FOUND</h1>
 
                     </div>
                     
-
+                    }
+                        
                 </div>
-
 
 
             </div>
