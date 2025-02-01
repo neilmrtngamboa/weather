@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import clearWeather from '../assets/Images/clear.png'
 import humidIcon from '../assets/Images/humid.png'
 import windIcon from '../assets/Images/wind.png'
@@ -12,6 +12,7 @@ import rainIcon from '../assets/Images/rain.png'
 const Weather = () => {
 
     const [weatherData, setWeatherData] = useState(false);
+    const weatherRef = useRef();
 
     const weatherIcons = {
         '01d' : clearWeather,
@@ -65,10 +66,13 @@ const Weather = () => {
             <div className=''>
                 <div className='bg-yellow-300 p-14 rounded-2xl shadow-2xl shadow-yellow-500 mt-16'>
                     <div className='flex gap-2'>
-                        <input type="text" placeholder='Search' className='p-1.5 shadow-md border border-blue-800 rounded' />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 my-auto">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
+                        <input type="text" ref={weatherRef} placeholder='Search' className='p-1.5 shadow-md border border-blue-800 rounded' />
+                        <button className='flex bg-yellow-300 px-5 shadow-lg hover:bg-yellow-400 hover:shadow-none' onClick={() => findCity(weatherRef.current.value)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 my-auto">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                            <span className='my-auto ms-1'>Search</span>
+                        </button>
                     </div>
                     <img src={weatherData.icon} alt="clear" className='mt-10' style={{width:'15rem',height:'15rem'}} />
                     <div className='text-center mt-5'>
