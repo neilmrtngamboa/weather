@@ -34,11 +34,22 @@ const Weather = () => {
 
 
     const findCity = async (city) => {
+
+        if (city === '') {
+            alert('enter a city name');
+            return;
+        }
         try{
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
 
             const response = await fetch(url);
             const data = await response.json();
+
+            if(!response.ok) {
+                alert(data.message);
+                return;
+            }
+            
             console.log(data);
             const icon = weatherIcons[data.weather[0].icon] || clearWeather;
             setWeatherData({
@@ -51,6 +62,8 @@ const Weather = () => {
             })
         
         } catch (error){
+            setWeatherData(false)
+            console.error("Can't fetch data!")
 
         }
     }
