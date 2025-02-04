@@ -15,7 +15,7 @@ const App = () => {
 
       <main className='flex flex-col bg-blue-300 dark:bg-indigo-950 min-h-lvh'>
         <span className='mx-auto lg:mx-0 lg:ms-3 mt-2'>
-          <button className='bg-white p-2 rounded' onClick={toggleDarkMode}>
+          <button className='bg-transparent hover:bg-blue-400 hover:dark:bg-indigo-900 p-2 rounded' onClick={toggleDarkMode}>
             {darkMode
               ?
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 fill-amber-300">
