@@ -31,7 +31,12 @@ const App = () => {
           </button>
         </span>
 
-        <Weather />
+        
+          <Weather
+          darkMode = {darkMode}
+          />
+
+        
 
       </main>
 
