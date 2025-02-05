@@ -78,9 +78,9 @@ const Weather = ({darkMode}) => {
     return (
         <div className='mx-auto'>
             <div className=''>
-                <div className='bg-violet-950  lg:p-14 p-8 rounded-2xl shadow-2xl shadow-violet-500 mt-10 mb-5 dark:bg-cyan-100 dark:shadow-cyan-200'>
+                <div className='bg-blue-500 lg:p-14 p-8 rounded-2xl shadow-md shadow-gray-500 mt-10 mb-5 dark:bg-cyan-100 dark:shadow-cyan-200'>
                     <div className='flex gap-2'>
-                        <input type="text" ref={weatherRef} placeholder='Search' className='p-1.5 w-36 lg:w-44  shadow-md border border-slate-200 bg-violet-900 placeholder-gray-400 rounded
+                        <input type="text" ref={weatherRef} placeholder='Search' className='p-1.5 w-36 lg:w-44  shadow-md border-gray-100 bg-gray-300 placeholder-gray-400 rounded
                             focus:bg-sky-100 dark:bg-gray-400 dark:placeholder-gray-500 dark:focus:bg-gray-300'/>
                         <button className='flex bg-white rounded-md font-light lg:px-5 px-2 hover:bg-slate-300 transition-all
                             dark:bg-violet-950 dark:text-white dark:hover:bg-violet-900' onClick={() => findCity(weatherRef.current.value).then(weatherRef.current.value = '')}>
@@ -96,8 +96,8 @@ const Weather = ({darkMode}) => {
                     <div>
                         <img src={weatherData.icon} alt="clear" className='mt-10 lg:h-64 lg:w-72 h-32 w-36 mx-auto'/>
                         <div className='text-center mt-5 text-white'>
-                            <p className='text-2xl lg:text-5xl font-extralight dark:text-black'>{weatherData.temperature}°C</p>
-                            <p className='text-xl lg:text-3xl mt-2 font-semibold dark:text-black'>{weatherData.location}</p>
+                            <p className='text-2xl lg:text-5xl font-extralight'>{weatherData.temperature}°C</p>
+                            <p className='text-xl lg:text-3xl mt-2 font-semibold'>{weatherData.location}</p>
                         </div>
 
                         <div className='grid grid-cols-2 mt-10 text-white'>
