@@ -78,12 +78,12 @@ const Weather = ({darkMode}) => {
     return (
         <div className='mx-auto'>
             <div className=''>
-                <div className='bg-blue-500 lg:p-14 p-8 rounded-2xl shadow-md shadow-gray-500 mt-10 mb-5 dark:bg-cyan-100 dark:shadow-cyan-200'>
+                <div className='bg-blue-500 lg:p-14 p-8 rounded-2xl shadow-md shadow-gray-500 mt-10 mb-5 dark:bg-violet-950 dark:shadow-violet-800'>
                     <div className='flex gap-2'>
                         <input type="text" ref={weatherRef} placeholder='Search' className='p-1.5 w-36 lg:w-44  shadow-md border-gray-100 bg-gray-300 placeholder-gray-400 rounded
                             focus:bg-sky-100 dark:bg-gray-400 dark:placeholder-gray-500 dark:focus:bg-gray-300'/>
                         <button className='flex bg-white rounded-md font-light lg:px-5 px-2 hover:bg-slate-300 transition-all
-                            dark:bg-violet-950 dark:text-white dark:hover:bg-violet-900' onClick={() => findCity(weatherRef.current.value).then(weatherRef.current.value = '')}>
+                            dark:bg-indigo-800 dark:text-white dark:hover:bg-indigo-900' onClick={() => findCity(weatherRef.current.value).then(weatherRef.current.value = '')}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 my-auto">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
@@ -103,18 +103,18 @@ const Weather = ({darkMode}) => {
                         <div className='grid grid-cols-2 mt-10 text-white'>
 
                             <div className='flex gap-2'>
-                                <p className='my-auto text-md lg:text-2xl font-mono dark:text-black'>{weatherData.humidity}%</p>
+                                <p className='my-auto text-md lg:text-2xl font-mono'>{weatherData.humidity}%</p>
                                 <img src={humidIcon} alt="humid" className='lg:h-12 lg:w-12 h-8 w-8 my-auto'/>
                             </div>  
 
                             <div className='flex gap-2'>
-                                <p className='my-auto text-md lg:text-2xl font-mono dark:text-black'>{weatherData.windSpeed}Km/h</p>
+                                <p className='my-auto text-md lg:text-2xl font-mono'>{weatherData.windSpeed}Km/h</p>
                                 {
                                     darkMode
                                     ?
-                                    <img src={windIcon} alt="wind" className='lg:h-12 lg:w-12 h-8 w-8 my-auto' />
-                                    :
                                     <img src={LwindIcon} alt="wind" className='lg:h-12 lg:w-12 h-8 w-8 my-auto' />
+                                    :
+                                    <img src={windIcon} alt="wind" className='lg:h-12 lg:w-12 h-8 w-8 my-auto' />
                                 }
 
                                 
