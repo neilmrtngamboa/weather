@@ -58,7 +58,8 @@ const Weather = ({darkMode}) => {
                 humidity: data.main.humidity,
                 windSpeed: data.wind.speed,
                 location: data.name,
-                icon: icon
+                icon: icon,
+                country: data.sys.country
 
             })
         
@@ -97,7 +98,7 @@ const Weather = ({darkMode}) => {
                         <img src={weatherData.icon} alt="clear" className='mt-10 lg:h-64 lg:w-72 h-32 w-36 mx-auto'/>
                         <div className='text-center mt-5 text-white'>
                             <p className='text-2xl lg:text-5xl font-extralight'>{weatherData.temperature}°C</p>
-                            <p className='text-xl lg:text-3xl mt-2 font-semibold'>{weatherData.location}</p>
+                            <p className='text-xl lg:text-3xl mt-2 font-semibold'>{weatherData.location}, {weatherData.country}</p>
                         </div>
 
                         <div className='grid grid-cols-2 mt-10 text-white'>
@@ -123,8 +124,8 @@ const Weather = ({darkMode}) => {
                         </div>
 
                         <div className='mt-5 text-center'>
-                            <h1 className='text-2xl font-extrabold text-black dark:text-white'>Weather App</h1>
-                            <p className='text-gray-800 font-extralight dark:text-gray-400'>Developed by: Neil Martin Gamboa ©2025</p>
+                            <h1 className='lg:text-2xl text-md font-extrabold text-black dark:text-white'>Weather App</h1>
+                            <p className='lg:text-md text-sm text-gray-800 font-extralight dark:text-gray-400'>Developed by: Neil Martin Gamboa ©2025</p>
                         </div>
                     </div> 
                     :
