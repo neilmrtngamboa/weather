@@ -121,6 +121,11 @@ const Weather = ({darkMode}) => {
                             </div>
 
                         </div>
+
+                        <div className='mt-5 text-center'>
+                            <h1 className='text-2xl font-extrabold text-black dark:text-white'>Weather App</h1>
+                            <p className='text-gray-800 font-extralight dark:text-gray-400'>Developed by: Neil Martin Gamboa ©2025</p>
+                        </div>
                     </div> 
                     :
                     
